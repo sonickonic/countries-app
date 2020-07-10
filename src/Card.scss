@@ -1,0 +1,46 @@
+.card {
+  color: var(--text);
+  font-family: "Nunito Sans", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--elements);
+  width: 274px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  border-radius: 0.5em;
+  box-shadow: 0px 2px 16px -5px rgba(0, 0, 0, 0.25);
+  transition: transform ease-out 200ms;
+  cursor: pointer;
+
+  &__flag {
+    height: 160px;
+    object-fit: cover;
+    border-radius: 0.5em 0.5em 0 0;
+  }
+
+  &__container {
+    margin: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__list {
+    list-style: none;
+    line-height: 1.8em;
+  }
+
+  &__list-item {
+    &--bold {
+      font-weight: 600;
+    }
+  }
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
