@@ -4,11 +4,27 @@ html {
   --elements: hsl(209, 23%, 22%);
   --background: hsl(207, 26%, 17%);
   --text: hsl(0, 0%, 100%);
+  --Input: hsl(0, 0%, 100%);
   font-size: 14px;
+}
+
+html[data-theme="light"] {
+  --elements: hsl(0, 0%, 100%);
+  --background: hsl(0, 0%, 98%);
+  --text: hsl(200, 15%, 8%);
+  --Input: hsl(0, 0%, 52%);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: background-color 750ms !important;
+  transition-delay: 0 !important;
 }

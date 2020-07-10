@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Header from "./Header";
 import Card from "./Card";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   async function fetchCountries() {
     const response = await fetch(`${baseEndpoint}`);
     const data = await response.json();
-    setCountries(data)
+    setCountries(data);
   }
 
   useEffect(() => {
@@ -17,7 +18,10 @@ function App() {
 
   return (
     <div className="App">
-      {countries.map((country,index) => <Card key={index} country={country} />)}
+      <Header />
+      {countries.map((country, index) => (
+        <Card key={index} country={country} />
+      ))}
     </div>
   );
 }
