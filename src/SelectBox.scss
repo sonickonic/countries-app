@@ -1,0 +1,64 @@
+.select-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 200px;
+  background-color: var(--elements);
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: 0px 2px 16px -5px rgba(0, 0, 0, 0.15);
+
+  &__wrapper {
+    position: relative;
+    user-select: none;
+    width: 200px;
+  }
+
+  &__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+    cursor: pointer;
+  }
+
+  &__options {
+    color: var(--text);
+    border-radius: 0.5em;
+    position: absolute;
+    display: block;
+    top: 110%;
+    left: 0;
+    right: 0;
+    border-top: 0;
+    background: var(--elements);
+    transition: all 0.5s;
+    z-index: 2;
+    box-shadow: 0px 2px 16px -5px rgba(0, 0, 0, 0.15);
+    padding: 1em 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__option {
+    position: relative;
+    display: block;
+    padding: 0.3em 2em;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+
+  &__options--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  &__option:hover {
+    transform: translate(1em);
+  }
+}
