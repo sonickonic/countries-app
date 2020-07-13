@@ -1,0 +1,31 @@
+.input {
+  position: relative;
+  width: 90%;
+  margin: 1.6rem auto;
+
+  &__icon{
+    position: absolute;
+    top: 50%;
+    margin-top: -7px;
+    left:2.5em;
+    margin-left: calc(-7px/2);
+    color: var(--Input);
+  }
+
+  &__field {
+    color: var(--text);
+    display: flex;
+    width: 100%;
+    background-color: var(--elements);
+    border: none;
+    border-radius: 0.5em;
+    padding: 1em 5em;
+    box-shadow: 0px 2px 16px -5px rgba(0, 0, 0, 0.25);
+  
+    &::placeholder {
+      font-family: "Nunito Sans", sans-serif;
+      color: var(--Input);
+    }
+  }
+}
+
