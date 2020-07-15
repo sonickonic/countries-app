@@ -1,9 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./Card.scss";
 
 function Card({ country }) {
+  const history = useHistory();
+
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={() => history.push(`/${country.name.toLowerCase()}`)}
+    >
       <img className="card__flag" src={country.flag} alt="flag" />
       <div className="card__container">
         <h3 className="card__title">{country.name}</h3>

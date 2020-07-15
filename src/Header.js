@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./Header.scss";
 
 function Header() {
@@ -23,10 +24,14 @@ function Header() {
     }, 1000);
   }
 
+  const history = useHistory();
+
   return (
     <div className="header">
       <div className="header__container">
-        <h1 className="header__title">Where in the world?</h1>
+        <h1 className="header__title" onClick={(e) => history.push(`/`)}>
+          Where in the world?
+        </h1>
         <div className="header__toggle-container">
           <input
             onClick={handleClick}
