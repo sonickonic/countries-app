@@ -8,6 +8,7 @@ import {
 import ListView from "./ListView";
 import Header from "./Header";
 import DetailsView from "./DetailsView";
+import "./App.scss";
 
 function App() {
   const [countries, setCountries] = useState([]);
