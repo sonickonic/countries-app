@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
   useLocation,
+  HashRouter,
 } from "react-router-dom";
 import ListView from "./ListView";
 import Header from "./Header";
@@ -36,18 +37,20 @@ function App() {
 
   return (
     <Router>
-      <ScrollToTop />
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route path="/" exact>
-            <ListView countries={countries} />
-          </Route>
-          <Route path="/:id">
-            <DetailsView countries={countries} />
-          </Route>
-        </Switch>
-      </div>
+      <HashRouter basename="/">
+        <ScrollToTop />
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route path="/" exact>
+              <ListView countries={countries} />
+            </Route>
+            <Route path="/:id">
+              <DetailsView countries={countries} />
+            </Route>
+          </Switch>
+        </div>
+      </HashRouter>
     </Router>
   );
 }
