@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Card from "./Card";
 import Input from "./Input";
 import SelectBox from "./SelectBox";
+import "./ListView.scss";
 
 function ListView({ countries }) {
   const [selected, setSelected] = useState("Filter by Region");
@@ -31,15 +32,19 @@ function ListView({ countries }) {
   }
 
   return (
-    <div>
-      <Input handleChange={handleChange} InputValue={InputValue} />
-      <SelectBox handleClick={handleClick} selected={selected} />
-      {countries
-        .filter((country) => matchSelected(country))
-        .filter((country) => matchInput(country))
-        .map((country, index) => (
-          <Card key={index} country={country} />
-        ))}
+    <div className="list">
+      <div className="list__container--flex">
+        <Input handleChange={handleChange} InputValue={InputValue} />
+        <SelectBox handleClick={handleClick} selected={selected} />
+      </div>
+      <div className="list__container--flex list__container--wrap">
+        {countries
+          .filter((country) => matchSelected(country))
+          .filter((country) => matchInput(country))
+          .map((country, index) => (
+            <Card key={index} country={country} />
+          ))}
+      </div>
     </div>
   );
 }

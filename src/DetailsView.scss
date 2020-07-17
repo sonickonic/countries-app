@@ -1,15 +1,21 @@
 .details {
   display: flex;
   flex-direction: column;
-  align-items: left;
 
   width: 85%;
   margin: 0 auto;
+  margin-top: 2.8em;
 
   &__flag {
-    max-height: 230px;
+    height: 230px;
+    width: 100%;
+    max-width: 560px;
     object-fit: cover;
-    margin: 4.5em 0 3.5em;
+    margin-bottom: 3.5em;
+  }
+
+  &__main-container {
+    margin-top: 4.5em;
   }
 
   &__title {
@@ -36,7 +42,8 @@
 
     &--bigger {
       font-weight: 600;
-      font-size: 1.2em;
+      font-size: 1em;
+      flex-basis: 100%;
     }
   }
 
@@ -51,7 +58,7 @@
     background-color: var(--elements);
 
     padding: 0 2em;
-    box-shadow: 0px 2px 16px -5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 2px 16px -5px rgba(0, 0, 0, 0.15);
     border-radius: 0.25em;
     margin-right: 0.8em;
     margin-top: 1em;
@@ -60,8 +67,10 @@
 
     &--back {
       padding: 0.5em 1em;
-      margin-top: 3em;
+      margin: 0;
       width: 30%;
+      max-width: 135px;
+      box-shadow: 0px 2px 16px -5px rgba(0, 0, 0, 0.25);
     }
 
     &:last-child {
@@ -76,5 +85,85 @@
 
   &__btn:hover {
     transform: scale(1.05);
+  }
+}
+
+@media (min-width: 600px) {
+  .details {
+    font-size: 16px;
+    &__flag {
+      height: 400px;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .details {
+    &__flag {
+      height: 400px;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .details {
+    &__main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__text-container {
+      margin-bottom: 3em;
+      max-width: 560px;
+    }
+
+    &__list-container {
+      display: flex;
+      justify-content: space-between;
+      width: 560px;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .details {
+    margin-top: 5rem;
+    width: 1280px;
+
+    &__flag {
+      margin: 0;
+    }
+
+    &__list {
+      &--horizontal {
+        margin-bottom: 0;
+        align-items: center;
+      }
+    }
+
+    &__title {
+      font-size: 2em;
+    }
+
+    &__list-item {
+      &--bigger {
+        line-height: 0;
+        margin-top: 0.5em;
+        margin-right: 1em;
+        flex-basis: auto;
+      }
+    }
+
+    &__main-container {
+      margin-top: 5em;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    &__text-container {
+      margin-left: 140px;
+    }
   }
 }

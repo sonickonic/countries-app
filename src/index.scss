@@ -31,3 +31,9 @@ html.transition *:after {
   transition: background-color 750ms;
   transition-delay: 0;
 }
+
+@media (min-width: 1000px) {
+  html {
+    font-size: 16px;
+  }
+}
