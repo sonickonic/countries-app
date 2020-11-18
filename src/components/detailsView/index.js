@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import "./DetailsView.scss";
+import formatPopulation from "../../utils/formatPopulation";
 
 function Language({ language }) {
   return <>{language}</>;
@@ -51,9 +52,7 @@ function DetailsView({ countries }) {
                     <span className="details__list-item--bold">
                       Population:
                     </span>{" "}
-                    {country.population
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    {formatPopulation(country.population)}
                   </li>
                   <li className="details__list-item">
                     <span className="details__list-item--bold">Region:</span>{" "}

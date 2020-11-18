@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import "./Card.scss";
+import formatPopulation from "../../utils/formatPopulation";
 
 function Card({ country }) {
   const history = useHistory();
@@ -16,9 +17,7 @@ function Card({ country }) {
         <ul className="card__list">
           <li className="card__list-item">
             <span className="card__list-item--bold">Population:</span>
-            {country.population
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            {formatPopulation(country.population)}
           </li>
           <li className="card__list-item">
             <span className="card__list-item--bold">Region:</span>
