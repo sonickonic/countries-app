@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Card from "./Card";
-import Input from "./Input";
-import SelectBox from "./SelectBox";
+import Card from "../card";
+import Input from "../input";
+import SelectBox from "../selectBox";
 import "./ListView.scss";
 
 function ListView({ countries }) {

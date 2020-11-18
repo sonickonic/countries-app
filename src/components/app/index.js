@@ -6,9 +6,9 @@ import {
   useLocation,
   HashRouter,
 } from "react-router-dom";
-import ListView from "./ListView";
-import Header from "./Header";
-import DetailsView from "./DetailsView";
+import ListView from "../listView";
+import Header from "../header";
+import DetailsView from "../detailsView";
 import "./App.scss";
 
 function App() {
