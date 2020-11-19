@@ -26,6 +26,31 @@ function DetailsView({ countries }) {
   let country = countries.find((country) => country.name.toLowerCase() === id);
   const history = useHistory();
 
+  const displayBorders = (borders) => {
+    return borders
+      .map((border) =>
+        countries.find((country) => country.alpha3Code === border)
+      )
+      .map((country, index) => <Border key={index} border={country.name} />);
+  };
+
+  const displayLanguages = (languages) => {
+    return languages
+      .map((language, index) => (
+        <Language key={index} language={language.name} />
+      ))
+      .reduce((acc, x) => (acc === null ? [x] : [acc, ", ", x]), null);
+  };
+
+  const displayListItem = (lable, value) => {
+    return (
+      <li className="details__list-item">
+        <span className="details__list-item--bold">{lable}</span>
+        {value}
+      </li>
+    );
+  };
+
   return (
     <>
       {country && (
@@ -42,71 +67,30 @@ function DetailsView({ countries }) {
               <h3 className="details__title">{country.name}</h3>
               <div className="details__list-container">
                 <ul className="details__list">
-                  <li className="details__list-item">
-                    <span className="details__list-item--bold">
-                      Native Name:
-                    </span>{" "}
-                    {country.nativeName}
-                  </li>
-                  <li className="details__list-item">
-                    <span className="details__list-item--bold">
-                      Population:
-                    </span>{" "}
-                    {formatPopulation(country.population)}
-                  </li>
-                  <li className="details__list-item">
-                    <span className="details__list-item--bold">Region:</span>{" "}
-                    {country.region}
-                  </li>
-                  <li className="details__list-item">
-                    <span className="details__list-item--bold">
-                      Sub Region:
-                    </span>{" "}
-                    {country.subregion}
-                  </li>
-                  <li className="details__list-item">
-                    <span className="details__list-item--bold">Capital:</span>{" "}
-                    {country.capital}
-                  </li>
+                  {displayListItem("Native Name:", country.nativeName)}
+                  {displayListItem(
+                    "Population:",
+                    formatPopulation(country.population)
+                  )}
+                  {displayListItem("Region:", country.region)}
+                  {displayListItem("Sub Region:", country.subregion)}
+                  {displayListItem("Capital:", country.capital)}
                 </ul>
                 <ul className="details__list">
-                  <li className="details__list-item">
-                    <span className="details__list-item--bold">
-                      Top Level Domain:
-                    </span>{" "}
-                    {country.topLevelDomain}
-                  </li>
-                  <li className="details__list-item">
-                    <span className="details__list-item--bold">
-                      Currencies:
-                    </span>{" "}
-                    {country.currencies[0].name}
-                  </li>
-                  <li className="details__list-item">
-                    <span className="details__list-item--bold">Languages:</span>{" "}
-                    {country.languages
-                      .map((language, index) => (
-                        <Language key={index} language={language.name} />
-                      ))
-                      .reduce(
-                        (acc, x) => (acc === null ? [x] : [acc, ", ", x]),
-                        null
-                      )}
-                  </li>
+                  {displayListItem("Top Level Domain:", country.topLevelDomain)}
+                  {displayListItem("Currencies:", country.currencies[0].name)}
+                  {displayListItem(
+                    "Languages:",
+                    displayLanguages(country.languages)
+                  )}
                 </ul>
               </div>
 
               <ul className="details__list details__list--horizontal">
                 <li className="details__list-item--bigger">
                   Borders countries:
-                </li>{" "}
-                {country.borders
-                  .map((border) =>
-                    countries.find((country) => country.alpha3Code === border)
-                  )
-                  .map((country, index) => (
-                    <Border key={index} border={country.name} />
-                  ))}
+                </li>
+                {displayBorders(country.borders)}
               </ul>
             </div>
           </div>
